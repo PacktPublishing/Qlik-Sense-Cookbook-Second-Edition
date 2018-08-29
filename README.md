@@ -47,24 +47,38 @@ With the following software and hardware list you can run all code files present
 
 | Chapter  | Software required                      | OS required                          |
 | -------- | ------------------------------------   | ------------------------------------ |
-| 1-9      | Qlik® Sense Desktop 2.0.1              |6GB of RAM, i5 Pentium, Windows 10 OS |
+| 1-9      | Qlik® Sense Desktop 2.0.1              |No specific requirement               |
 
 
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](http:/ / www. packtpub. com/ sites/ default/ files/downloads/ QlikSenseCookbookSecondEdition_ ColorImages. pdf).
 
 ### Related products 
-* Learning Social Media Analytics with R [[Packt]](https://www.packtpub.com/big-data-and-business-intelligence/learning-social-media-analytics-r?utm_source=github&utm_medium=repository&utm_campaign=9781787127524) [[Amazon]](https://www.amazon.com/dp/1787127524)
+* Qlik Sense® Cookbook [[Packt]](https://www.packtpub.com/big-data-and-business-intelligence/qlik-sense-cookbook?utm_source=github&utm_medium=repository&utm_campaign=9781782175148) [[Amazon]](https://www.amazon.com/dp/1785285165)
 
-* Predictive Analytics with Tensorflow [[Packt]](https://www.packtpub.com/big-data-and-business-intelligence/predictive-analytics-tensorflow?utm_source=github&utm_medium=repository&utm_campaign=9781788398923) [[Amazon]](https://www.amazon.com/dp/1788398920)
 
 ## Get to Know the Author
-**Dr. Vikas (Vik) Kumar**
- grew up in the United States in Niskayuna, New York. He earned
-his MD from the University of Pittsburgh, but shortly afterwards he discovered his true
-calling of computers and data science. He then earned his MS in the College of Computing
-at Georgia Institute of Technology and has subsequently worked as a data scientist for both
-healthcare and non-healthcare companies. He currently lives in Atlanta, Georgia.
+**Pablo Labbe**
+ is a BI consultant with over 20 years' experience. In 2008 he was introduced to
+Qlikview, a former product by Qlik and the seed for Qlik Sense. Since then, he has focused
+on delivering BI solutions in a new way. Now he is the Principal of ANALITIKA
+Inteligencia, delivering BI projects and training on Qlik products and other technologies
+that embrace the self-service BI. Pablo is an active member of the Qlik community and
+other social media sites.
+
+**Philip Hand** is a senior BI consultant who has worked with QlikView in the BI space for
+over 7 years. He has implemented end-to-end solutions in a wide variety of enterprises and
+for large business customers. He has spent many years consulting on business and
+QlikView solutions. His belief is that such a role proves invaluable to hone your skills
+through exposure to many different businesses, problems, technologies, industries, and
+people.
+
+**Neeraj Kharpate** works as an independent BI consultant providing services to clients from
+various industries. Neeraj embarked on his journey with Qlik in mid-2007. He has over 10
+years of experience working with clientele from multiple sectors, ranging from banks and
+insurance to retail. Neeraj has been closely following the developments in Qlik Sense ever
+since it was launched in 2014 and is actively involved with its enterprise-wide
+implementations.
 
 
 

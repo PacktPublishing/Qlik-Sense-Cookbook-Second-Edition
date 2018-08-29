@@ -1,0 +1,17 @@
+VariableDefinitions:
+LOAD
+    Variable,
+    Expression
+FROM [lib://QlikSenseCookBook_SourceFiles/Variables.xlsx]
+(ooxml, embedded labels, table is Variables);
+
+Let vNumberOfRows = NoOfRows('VariableDefinitions');
+For vI = 0 to (vNumberOfRows - 1)
+Let vVariable_Name = Peek('Variable',vI,'Expression');
+Let [$(vVariable_Name)] = 
+  Peek('Expression',vI,'Expression');
+Next
+
+let vI = null();
+Let vNumberOfRows = null();
+let vVariable_Name = null();

@@ -1,4 +1,4 @@
-# Qlik-Sense-Cookbook-Second-Edition
+# Qlik Sense Cookbook, Second Edition
 
 <a href="https://www.packtpub.com/big-data-and-business-intelligence/qlik-sense-cookbook-second-edition?utm_source=github&utm_medium=repository&utm_campaign=9781788997058"><img src="https://www.packtpub.com/sites/default/files/B10160_MockupCoverNew.png" alt="Qlik Sense Cookbook, Second-Edition" height="256px" align="right"></a>
 

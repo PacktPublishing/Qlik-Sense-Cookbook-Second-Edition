@@ -1,0 +1,21 @@
+Transactions:
+Load 
+ Mod(IterNo(),26)+1 				 AS Period,
+ Pick(Ceil(3*Rand()),'Standard','Premium','Discount') AS ProductType,
+ Pick(Ceil(6*Rand()),'Apple','Orange','Cherry','Plum','Fig','Pear') 	 AS Category,
+ Pick(Ceil(3*Rand()),'Heavy','Medium','Light') 	 	 AS Weight,
+ Pick(Ceil(2*Rand()),'2013','2014') 	 	 		 AS Year, 
+ Round(1000*Rand()*Rand()*Rand()) AS Sales
+Autogenerate 20
+While Rand()<=0.5 or IterNo()=1;
+
+SET vDimension = 'GetFieldSelections(Dimensions)';
+
+Dimensions:
+LOAD * INLINE [
+    Dimensions
+    Weight
+    ProductType
+    Category
+    Period
+];

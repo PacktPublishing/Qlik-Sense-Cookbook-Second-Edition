@@ -1,0 +1,72 @@
+// ============ Load the Employee table ============
+Employee:
+LOAD * INLINE [
+    EmployeeID,EmployeeName
+    11,Susan Sayce
+    22,Adam Holliaoak
+    33,Rod Marsh
+    44,Alex Gerard
+    55,Pete Cox
+];
+// ============ Load the Position table ============
+Position:
+LOAD * INLINE [
+PositionID,Position
+1,HR Analyst
+2,HR Director
+3,HR Executive    
+];
+
+// ============ Load the Employee table with the Date Intervals ============
+EmployeeIntTemp: 
+LOAD *,
+	Autonumber(EmployeeID & '-' & PositionFrom & '-' & PositionTo) as DatePositionKey;
+LOAD DATE(Date#( PositionFrom,'DD/MM/YYYY')) as PositionFrom,
+DATE(Date#( PositionTo,'DD/MM/YYYY')) as PositionTo, PositionID, EmployeeID
+ INLINE [
+    PositionFrom, PositionTo,PositionID,EmployeeID
+    01/09/2009, 31/10/2010,2,11
+    01/08/2008, 31/08/2009,1,11
+    10/08/2008, 15/03/2010,1,22
+    03/03/2008, 08/12/2008,2,33
+    15/02/2008, 15/03/2010,3,44
+    01/06/2008, 08/12/2008,3,55
+];
+
+EmployeeInt:
+LOAD *,
+if([EmployeeID]= previous([EmployeeID]),‘No’,‘Yes’)	AS LatestRecordFlag
+RESIDENT EmployeeIntTemp
+ORDER BY [EmployeeID] ASC, PositionFrom DESC;	
+
+DROP TABLE EmployeeIntTemp;
+
+
+// ============ Load the Employee Salary table ============
+EmployeeSalary:
+LOAD EmpID ,DATE(Date#( DateInToPosition,'DD/MM/YYYY')) as DateInToPosition, EmployeeSal INLINE [
+    EmpID,DateInToPosition,EmployeeSal
+    11,01/09/2009,90000
+    11,01/08/2008,50000
+    22,10/08/2008,45000
+    33,03/03/2008,100000
+    44,15/02/2008,60000
+    55,01/06/2008,55000
+];
+
+
+// ============ Link Table using the IntervalMatch prefix ============
+LinkTable:
+IntervalMatch (DateInToPosition,EmpID)
+Load distinct PositionFrom, PositionTo, EmployeeID AS EmpID Resident EmployeeInt;
+
+Left Join (EmployeeSalary)
+Load 
+EmpID,
+DateInToPosition,
+Autonumber(EmpID & '-' & PositionFrom & '-' & PositionTo) AS DatePositionKey
+Resident LinkTable;
+	
+// ============ Cleanup ============
+Drop Table LinkTable;
+Drop Field EmpID;

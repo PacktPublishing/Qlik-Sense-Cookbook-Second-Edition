@@ -1,0 +1,70 @@
+ExchangeRatetemp:
+LOAD FromCurrency,ExchangeRate,
+DATE(Date#(RateStartDate,'DD/MM/YYYY')) as RateStartDate INLINE [
+FromCurrency, ExchangeRate, RateStartDate
+EUR,0.687,01/08/2012
+EUR,0.757,02/09/2012
+EUR,0.74,08/09/2013
+EUR,1.10,24/10/2014
+SGD,0.52,01/08/2012
+SGD,0.68,27/02/2014
+SGD,0.88,28/03/2015
+USD,0.75,14/12/2013
+USD,0.77,16/01/2014
+USD,0.85,26/06/2015
+];
+
+
+ExchangeRate:
+LOAD
+FromCurrency,
+ExchangeRate,
+Date (RateStartDate) AS RateStartDate,
+If (FromCurrency=Peek (FromCurrency), Date (Peek (RateStartDate)-1), Today ()) AS RateEndDate
+RESIDENT
+ExchangeRatetemp
+ORDER BY FromCurrency, RateStartDate DESC;
+
+DROP TABLE ExchangeRatetemp;
+
+
+//--------------------------------------------------------------------------------------
+// Generate calendar dates
+//--------------------------------------------------------------------------------------
+	
+LET ExStartDate = Num(Peek('RateStartDate', -1, ExchangeRate));
+LET ExEndDate = Num(Peek('RateEndDate', 0, ExchangeRate));
+	
+ExchangeRateCalendar:
+LOAD
+Date($(ExStartDate) + RecNo() - 1) AS ExchangeRateDate
+AUTOGENERATE
+($(ExEndDate) - $( ExStartDate) + 1);
+	
+//--------------------------------------------------------------------------------------
+// INTERVAL MATCH JOIN the month records to the calendar table
+//--------------------------------------------------------------------------------------
+	
+LEFT JOIN (ExchangeRateCalendar)
+INTERVALMATCH (ExchangeRateDate)
+LOAD
+RateStartDate,
+RateEndDate
+RESIDENT
+ExchangeRate;
+	
+LEFT JOIN (ExchangeRateCalendar) 
+LOAD * RESIDENT ExchangeRate;
+	
+DROP TABLE ExchangeRate;
+
+ExchangeRate:
+LOAD
+FromCurrency,
+ExchangeRateDate,
+ExchangeRate
+RESIDENT
+ExchangeRateCalendar;
+	
+DROP TABLE ExchangeRateCalendar;
+

@@ -1,0 +1,8 @@
+Transactions:
+Load 
+ date(today()-IterNo()) AS Date,
+ Pick(Ceil(3*Rand()),'Standard','Premium','Discount') AS ProductType,
+ floor(date(today()-IterNo())) AS DateNum,
+ Round(1000*Rand()*Rand()*Rand()) AS Sales
+Autogenerate 1000
+ While Rand()<=0.9 or IterNo()=1;

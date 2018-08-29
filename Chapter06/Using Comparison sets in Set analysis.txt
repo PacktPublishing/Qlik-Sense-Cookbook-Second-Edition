@@ -1,0 +1,29 @@
+Data: 
+LOAD * INLINE [
+    Fruit, Year, Sales
+    Apple, 2013, 63
+    Apple, 2014, 4
+    Cherry, 2014, 1150
+    Cherry, 2013, 1180
+    Fig, 2013, 467
+    Fig, 2013, 374
+    Fig, 2014, 162
+    Orange, 2013, 131
+    Orange, 2013, 145
+    Orange, 2014, 102
+    Pear, 2014, 489
+    Pear, 2014, 782
+    Plum, 2013, 148
+    Plum, 2014, 412
+]; 
+
+DataIslandFruit: 
+LOAD * INLINE [
+FruitAlt
+Apple
+Cherry
+Fig
+Orange
+Pear
+Plum
+];

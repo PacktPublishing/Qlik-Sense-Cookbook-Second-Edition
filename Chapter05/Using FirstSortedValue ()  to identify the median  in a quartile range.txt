@@ -1,0 +1,16 @@
+Case:
+LOAD * INLINE [
+CaseID,Value,Status
+101,1500,Active
+102,1800,Active
+103,800,Closed
+104,2590,Closed
+105,3500,Closed
+106,1200,Active
+107,5600,Active
+108,8000,Closed
+109,5960,Closed
+110,5000,Active
+111,4000,Active
+112,2500,Active
+];

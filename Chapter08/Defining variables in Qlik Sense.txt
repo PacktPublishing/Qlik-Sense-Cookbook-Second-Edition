@@ -1,0 +1,11 @@
+Sales:
+LOAD * INLINE [
+Country, Sales,COS
+USA, 1000,500
+UK, 2000,1000
+France, 3000,2500
+Germany, 4000,4700
+];
+
+Let vRedColor=RGB (255, 0, 0);
+Let vSales= ‘Sum(Sales)’;

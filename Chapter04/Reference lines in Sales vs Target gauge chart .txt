@@ -1,0 +1,7 @@
+LOAD * INLINE [
+Country, Sales, Target
+USA, 10000, 8500
+UK, 7000, 9500
+Germany, 5000	, 4500
+Japan, 6000, 6000
+];

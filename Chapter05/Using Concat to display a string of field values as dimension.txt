@@ -1,0 +1,10 @@
+Orders:
+LOAD * INLINE [
+    Customer,OrderID,Product,Cost
+    1,201,Chain,20
+    1,201,Seat,40
+    1,201,Mudguard,50
+    2,202,Gloves,15
+    2,202,Basket,60
+    3,203,Helmet,70
+    ]; 

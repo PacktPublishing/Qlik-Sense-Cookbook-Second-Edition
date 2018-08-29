@@ -1,0 +1,35 @@
+For each File in filelist ('C:\QlikSense\*.xlsx') 
+
+ProdSales:
+LOAD
+ left(FileBaseName(),18) AS  ProdSalesFileName,
+filename() as FileName,
+ [Product],
+[Sales]
+FROM [$(File)]
+(ooxml, embedded labels, table is Sheet1)
+WHERE Sales >250000;
+		
+Execute cmd.exe /C move "$(File)" "C:\QlikSense\Processed";
+
+next File
+
+SET rowCount = 0;
+LET rowCount = NoOfRows('ProdSales');
+
+IF rowCount > 0 AND Alt(FileSize('C:\ QlikSense \QVD\ProdSales.QVD'),0) > 0 THEN	
+Concatenate(ProdSales)
+		
+LOAD * FROM  C:\\QlikSense\QVD\ProdSales.QVD (qvd);
+
+STORE ProdSales INTO  C:\QlikSense\QVD\ProdSales.QVD;
+
+ELSE
+ 
+STORE ProdSales INTO C:\QlikSense\QVD\ProdSales.QVD;
+
+END IF
+
+DROP TABLE ProdSales;
+
+LOAD * FROM C:\QlikSense\QVD\ProdSales.QVD (qvd);

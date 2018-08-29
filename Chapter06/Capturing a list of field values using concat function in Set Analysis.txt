@@ -1,0 +1,17 @@
+Transactions:
+Load *,
+    If(Len(TmpSubCategory)=0,Null(),TmpSubCategory) AS SubCategory;
+Load * INLINE [
+    ProductType, Category, TmpSubCategory, Sales
+    Premium,A4,A4,300
+    Standard,A4,A4,100
+    Premium,A5,A5,500
+    Standard,A5,A5,200
+    Premium,A6,A6,1000
+    Standard,A6,A6,600
+    Premium,A1,,700
+    Standard,A1,,300
+    Premium,A2,,300
+    Premium,A3,,200
+    Standard,A3,,60
+]; 

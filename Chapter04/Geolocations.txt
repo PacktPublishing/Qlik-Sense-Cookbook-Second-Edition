@@ -1,0 +1,31 @@
+Country:
+Load RowNo() As CountryID, *,GeoMakePoint(Latitude, Longitude) As CountryGeoPoint Inline [
+    Country, Latitude, Longitude
+    Australia, -25.274398,133.775136
+    Argentina, -38.416097,-63.616672
+    India, 20.593684,78.962880
+    China, 35.861660,104.195397
+    Colombia, 4.570868,-74.297333
+    Great Britain,55.378051,-3.435973
+    Switzerland ,46.8181887,8.227512
+    Netherlands,52.132633,5.291266
+    Salvador,13.794185,-88.896530
+    Italy,41.871940,12.567380
+    Peru,-9.189967,-75.015152
+];
+
+Sales:
+Load * Inline [
+    Country, Region, Sales
+    Australia,Australia,133775
+    Argentina, Latam,6361672
+    India, APAC,7896880
+    China, APAC,10419397
+    Colombia, Latam,742333
+    Great Britain,EMEA,3590073
+    Switzerland ,EMEA,8227512
+    Netherlands,EMEA,521266
+    Salvador,Latam,8886530
+    Italy,EMEA,12567807
+    Peru,Latam,750152
+];

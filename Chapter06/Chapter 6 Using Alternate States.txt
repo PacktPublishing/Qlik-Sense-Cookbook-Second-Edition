@@ -1,0 +1,17 @@
+Transactions:
+Load 
+ date(today()-RowNo()) AS Date,
+ Pick(Ceil(4*Rand()),'Apple','Orange','Lemon','Strawberry') AS 
+  Product,
+ Pick(Ceil(2*Rand()),'Standard','Premium') AS 
+  ProductType,
+ Round(1000 * Rand()) * Ceil(4*Rand()) AS Sales
+Autogenerate 1000;
+
+Calendar:
+Load distinct
+	Date,
+    Year(Date) as Year,
+    Month(Date) as Month,
+    MonthName(Date) as MonthYear
+Resident Transactions;

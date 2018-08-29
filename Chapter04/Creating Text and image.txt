@@ -1,0 +1,6 @@
+SalesData:
+	LOAD * INLINE [
+    	ID, Sales, Quantity, Cost
+    	1, 15000, 50, 11000
+    	2, 30000, 100, 25000
+];

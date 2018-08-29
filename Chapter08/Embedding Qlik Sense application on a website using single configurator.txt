@@ -1,0 +1,9 @@
+/**** Code for generating website*****/
+
+<html>
+<title>My Web-page</title>
+<body bgcolor="beige">	
+Qlik Sense 
+<marquee>Embedding Qlik Sense application in website using single configurator!</marquee>
+<img src="http://siliconcloud.com/sc-content/uploads/2015/06/qliksense.png" height="200" width="200"></body>
+<html>

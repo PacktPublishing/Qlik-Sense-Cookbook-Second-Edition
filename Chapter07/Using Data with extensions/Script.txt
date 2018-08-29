@@ -1,0 +1,12 @@
+Transactions:
+Load *,
+ mod(TransID,26)+1 			AS Period,
+ Pick(Ceil(3*Rand1),'Standard','Premium','Discount') 		 AS ProductType,
+ Pick(Ceil(6*Rand1),'Apple','Orange','Cherry','Plum','Fig','Pear') 	 AS Category,
+ Round(1000*Rand()*Rand()*Rand1) 	AS Sales,
+ Round(Rand()*Rand1,0.00001) 	AS Margin;
+Load 
+ date(41275+IterNo()-1) AS Date,
+ Rand()   AS Rand1,
+ RecNo() AS TransID
+Autogenerate 1000 While Rand()<=0.5 or IterNo()=1;

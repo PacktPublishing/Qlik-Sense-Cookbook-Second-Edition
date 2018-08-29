@@ -1,0 +1,26 @@
+OrgSales:
+LOAD Product, OrderNo ,DATE(Date#( InvoiceDate,'DD/MM/YYYY')) as InvoiceDate,
+Sales INLINE [
+InvoiceDate,Product,OrderNo,Sales
+1/1/2013,Chains,101,5500
+8/2/2014,Seats,101,4800
+3/3/2014,Brake Oil,102,6500
+9/5/2015,Helmets,104,4500
+];
+
+
+Calendar:
+Declare Field Definition Tagged '$date'
+Parameters
+    	first_month_of_year=1
+ Fields
+       Year($1)  as Year Tagged '$year',
+        Month($1) as Month Tagged '$month',
+        Date($1) as Date Tagged '$date',
+        Week($1,first_month_of_year) as Week Tagged '$week'
+       
+    Groups
+    	Year,Month,Date type collection as YearMonthDate;
+
+
+Derive Fields from Fields InvoiceDate using Calendar;

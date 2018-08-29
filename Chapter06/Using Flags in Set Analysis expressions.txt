@@ -1,0 +1,36 @@
+SalesTemp: 
+LOAD DATE(Date#(DeliveryDate,'DD/MM/YYYY')) AS DeliveryDate, 
+DATE(Date#(ShipmentDate,'DD/MM/YYYY')) AS ShipmentDate, 
+Invoiceno.,Customer,Month,Sales INLINE [ 
+Invoiceno.,Customer,Month,DeliveryDate,ShipmentDate,Sales 
+101,ABC,Jan,01/01/2015,29/12/2014,10000 
+102,ABC,Feb,02/02/2015,25/01/2015,10000 
+103,ABC,Mar,03/03/2015,02/03/2015,12000 
+104,ABC,Apr,04/04/2015,24/01/2015,10000 
+105,DEF,Feb,03/02/2015,03/02/2015,25000 
+106,DEF,Mar,25/03/2015,21/03/2015,25000 
+107,DEF,Apr,18/04/2015,14/04/2015,25000 
+108,GHI,Jan,24/01/2015,18/01/2015,8500 
+109,GHI,Mar,14/03/2015,09/03/2015,7000 
+110,GHI,Jun,06/08/2015,07/06/2015,5000 
+]; 
+ 
+ 
+Sales: 
+LOAD * , 
+IF(num(DeliveryDate)-num(ShipmentDate)>=0 AND 
+Num(DeliveryDate)-num(ShipmentDate)<5 ,1, 
+IF(num(DeliveryDate)-num(ShipmentDate)>=5 AND 
+Num(DeliveryDate)-num(ShipmentDate)<25 ,2,3)) AS 
+   OntimeLateFlag 
+RESIDENT SalesTemp; 
+DROP TABLE SalesTemp; 
+
+----------------------------------------------------------------
+Sales: 
+LOAD *, 
+IF(OntimeLateFlag =1, Dual('OnTime',1),  
+IF(OntimeLateFlag =2, Dual('SlightDelay',2), 
+   Dual('Late',3))) As Flag 
+RESIDENT SalesTemp1; 
+DROP Table SalesTemp1; 

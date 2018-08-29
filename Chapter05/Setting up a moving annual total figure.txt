@@ -1,0 +1,46 @@
+LET vMonthFormat = 'MMM-YYYY';
+LET v12MonthsBack = 'Date(AddMonths(max([MonthYear]), -12),$(vMonthFormat))';
+LET vMaxMonth='Date(max([MonthYear]),$(vMonthFormat))';
+
+
+Sales:
+LOAD  
+Date(Date#(MonthYear, 'MMMYYYY'), 'MMM-YYYY') as MonthYear,
+Month(Date#(MonthYear, 'MMMYYYY')) as Month,
+Year(Date#(MonthYear, 'MMMYYYY')) as Year,
+Sales  INLINE [
+
+MonthYear, Sales
+Jan2014, 1000
+Feb2014, 1520
+Mar2014, 1600
+Apr2014, 3000
+May2014, 2500
+Jun2014, 4500
+Jul2014, 6000
+Aug2014, 6500
+Sep2014, 7800
+Oct2014, 6800
+Nov2014, 3000
+Dec2014, 2500
+Jan2015, 750
+Feb2015, 1200
+Mar2015, 800
+Apr2015, 600
+May2015, 2100
+Jun2015, 3500
+Jul2015, 4700
+Aug2015, 2100
+Sep2015, 3500
+Oct2015, 4700
+]; 
+
+FOR vMonth = 0 to 11
+MATMonthYear:
+LOAD
+[MonthYear],
+Date(AddMonths([MonthYear], $(vMonth)),'$(vMonthFormat)') as [MAT MonthYear]
+RESIDENT Sales
+WHERE AddMonths([MonthYear], $(vMonth)) < today()
+;
+next

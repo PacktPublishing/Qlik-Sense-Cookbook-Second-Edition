@@ -1,0 +1,63 @@
+HolidayTmp:
+LOAD DATE(Date#( Date,'DD/MM/YYYY')) as Date  INLINE [ 
+Date
+01/01/2015
+03/04/2015
+06/04/2015
+04/05/2015
+25/05/2015
+31/08/2015
+25/12/2015
+28/12/2015
+01/01/2014
+18/04/2014
+21/04/2014
+05/05/2014
+26/05/2014
+25/08/2014
+25/12/2014
+26/12/2014
+];
+
+
+ConcatTmp:
+LOAD concat(chr(39) & Date & chr(39),',') AS HolidayDates
+
+RESIDENT HolidayTmp;
+
+LET vPublicHolidays = FieldValue('HolidayDates',1);
+
+LET vCurMonth=month(today());
+	
+LOAD DATE(Date#( PostingDate,'DD/MM/YYYY')) as PostingDate, Sales INLINE  [
+PostingDate, Sales
+05/08/2014, 5000
+04/09/2014,522
+24/10/2014,400
+15/11/2014,5000
+24/12/2014, 822
+29/12/2014, 633
+02/01/2015, 1000
+02/02/2015, 2000
+25/03/2015,2200
+25/04/2015,266
+09/05/2015, 3000
+18/05/2015, 4000
+15/06/2015,5000
+22/07/2015,456
+08/09/2015,4200
+26/10/2015,1875
+];
+
+
+Sales:
+LOAD *,
+Month(PostingDate) as Month,
+MonthName(PostingDate) AS MonthYear, 
+IF(Year(PostingDate)=Year(TODAY()) AND Month(PostingDate)=MONTH(TODAY()),NETWORKDAYS(MONTHSTART(today()),(Today()),$(vPublicHolidays)),NETWORKDAYS(MONTHSTART(PostingDate),MonthEnd(PostingDate),
+$(vPublicHolidays))) AS WorkingDays 
+RESIDENT
+SalesTmp;
+
+DROP table SalesTmp; 
+DROP table HolidayTmp;

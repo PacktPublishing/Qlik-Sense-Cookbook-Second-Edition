@@ -1,0 +1,64 @@
+Let vMaxMonth=Max(Month);
+
+TrialBalancetemp:
+CrossTable(Month, Amount, 4)
+LOAD [Company Number],
+	[Account Number],
+	[Year],
+  	 Forwarded,
+	[January],
+	[February],
+	[March],
+	[April],
+	[May],
+	[June],
+	[July],
+	[August],
+	[September],
+	[October],
+	[November],
+	[December]
+FROM [lib://QlikSenseCookBook_TB/Trial Balance.xlsx]
+(ooxml, embedded labels, table is Sheet1);
+
+
+
+TrialBalancetemp1:
+NoConcatenate LOAD	
+[Company Number],
+[Account Number],
+ Forwarded,
+Year, 
+Month(Date#(Month,'MMM')) as Month,
+Date(MakeDate(Year, Month(Date#(Month,'MMM'))), 'MMM YYYY') as MonthYear,
+Amount
+Resident TrialBalancetemp;
+DROP Table TrialBalancetemp;
+
+
+
+TrialBalance:
+NoConcatenate LOAD
+CompanyAccountKey,
+[Company Number],
+[Account Number],
+MonthYear,
+Year,
+Month,
+Amount,
+if(Rowno() = 1 OR CompanyAccountKey <> Peek(CompanyAccountKey), 	Forwarded, Peek(Closing)) as Opening,
+if(Rowno() = 1 OR CompanyAccountKey <> Peek(CompanyAccountKey), 	Forwarded + Amount, Peek(Closing) + Amount) as Closing
+;
+NoConcatenate LOAD
+[Company Number] & '_' & [Account Number] as CompanyAccountKey, 
+[Company Number],
+[Account Number],
+Year, 
+Month,
+MonthYear,
+Forwarded,
+Amount
+Resident TrialBalancetemp1
+Order By [Company Number], [Account Number], MonthYear;
+DROP Table TrialBalancetemp1;
+

@@ -1,0 +1,27 @@
+Sales:
+LOAD 
+Month(Date#(Month,'MMM')) as Month,
+Year,
+Sales
+INLINE [
+Month,Year,Sales
+Jan,2014,1000
+Feb,2014,1520
+Mar,2014,1600
+Apr,2014,3000
+May,2014,2500
+Jun,2014,4500
+Jul,2014,6000
+Aug,2014,6500
+Sep,2014,7800
+Oct,2014,6800
+Nov,2014,3000
+Dec,2014,2500
+Jan,2015,750
+Feb,2015,1200
+Mar,2015,800
+Apr,2015,600
+May,2015,2100
+Jun,2015,3500
+Jul,2015,4700
+];

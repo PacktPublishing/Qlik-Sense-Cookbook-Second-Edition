@@ -1,0 +1,8 @@
+Sales:
+LOAD * INLINE [
+Customer,Month,Volume,Sales
+ABC,Jan,100,7500
+DEF,Feb,200,8500
+GHI,Mar,400,12000
+JKL,Apr,100,4500
+];

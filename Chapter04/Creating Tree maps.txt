@@ -1,0 +1,21 @@
+LOAD * INLINE [
+    Product Line, Product Group, Product Sub Group, Year, Sales, Cost
+    Drink, Beverages, Juice, 2015, 12000, 6000
+    Drink, Beverages, Juice, 2014, 16000, 7000
+    Drink, Beverages, Soda, 2015, 42000, 26000
+    Drink, Beverages, Soda, 2014, 68000, 57000
+    Drink, Beverages, Water, 2015, 18000, 8000
+    Drink, Beverages, Water, 2014, 10000, 6000
+    Drink, Dairy, Milk, 2015, 25000, 22000
+    Drink, Dairy, Milk, 2014, 22000, 20000
+    Food, Dairy, Cheese, 2015, 22000, 8000
+    Food, Dairy, Cheese, 2014, 31000, 30000
+    Food, Produce, Nuts, 2015, 50000, 30000
+    Food, Produce, Nuts, 2014, 46000, 26000
+    Food, Produce, Tofu, 2015, 26000, 21000
+    Food, Produce, Tofu, 2014, 15000, 7000
+    Food, Snacks, Chips, 2015, 31000, 6000
+    Food, Snacks, Chips, 2014, 15000, 9000
+    Food, Snacks, Dips, 2015, 10000, 6000
+    Food, Snacks, Dips, 2014, 6000, 3000
+];

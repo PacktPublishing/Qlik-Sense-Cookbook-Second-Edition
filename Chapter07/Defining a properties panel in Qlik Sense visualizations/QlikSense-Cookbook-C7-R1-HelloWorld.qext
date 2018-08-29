@@ -1,0 +1,9 @@
+{
+   	 "name" : " QlikSense Cookbook - Hello World",
+    "description" : "QlikSense Cookbook - Chapter 7, Recipe 1: Hello World.",
+    "icon" : "extension",
+   	 	"type" : "visualization",
+   	 	"version": "1",
+    "preview" : "bar",
+    "author": "Your Name"
+}

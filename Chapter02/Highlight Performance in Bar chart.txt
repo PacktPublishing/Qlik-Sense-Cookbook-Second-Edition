@@ -1,0 +1,8 @@
+Products:
+LOAD * INLINE [ 
+Product, Actuals, Budget 
+Footwear, 100000, 120000
+Tyres, 180000, 150000 
+Mountain Bikes, 250000, 195000 
+Road Bikes, 200000, 225000 
+];

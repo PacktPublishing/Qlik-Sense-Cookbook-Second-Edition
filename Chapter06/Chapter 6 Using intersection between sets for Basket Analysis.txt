@@ -1,0 +1,14 @@
+Basket:
+LOAD * INLINE [
+BasketInvoiceno, BasketProduct, BasketSales
+101, Apple, 10000
+101, Orange, 5000
+101, Lemon, 6000
+102, Apple, 30000
+103, Orange, 4000
+103, Strawberry, 4000
+104, Lemon, 4000
+106, Apple, 3000
+106, Orange, 2000
+107, Strawberry, 4000
+];

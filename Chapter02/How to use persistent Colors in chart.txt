@@ -1,0 +1,16 @@
+ProductsTemp:
+LOAD * INLINE [ 
+Product, Actuals, Budget 
+Footwear, 100000, 120000
+Tyres, 180000, 150000 
+Mountain Bikes, 250000, 195000 
+Road Bikes, 200000, 225000 
+];
+
+Products:
+LOAD *,
+pick(match("Product", 'Footwear', 'Tyres', 'Mountain Bikes', 'Road Bikes'), RGB(236,129,0),RGB(250,185,0), RGB(70,137,164), RGB(141,25,8)) as "Product color"
+ 
+RESIDENT ProductsTemp;
+
+Drop table ProductsTemp;

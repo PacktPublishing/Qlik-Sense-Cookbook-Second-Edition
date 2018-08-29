@@ -1,0 +1,7 @@
+Transactions:
+Load
+ Round(1000*Rand()*Rand()*Rand()) as Sales,
+ Round(  10*Rand()*Rand()*Rand()) as Quantity,
+ RecNo() as TransID
+Autogenerate 1000000
+ While rand()<0.5 or IterNo()=1;

@@ -1,0 +1,19 @@
+Data:
+LOAD * INLINE [
+    Name, Region, Country, City, OrderId, Sales, Company, OrderDate
+    Wooten, C, Mozambique, Carmen, 1, 45.55, Est Nunc Laoreet LLC, 22/12/14
+    Blankenship, Delta, Cayman Islands, Sapele, 2, 95.76, Lorem Donec Inc., 17/01/15
+    Sheppard, Wyoming, Vatican City State, Cheyenne, 3, 38.31, Lobortis, 07/08/14
+    Goddard, H, Curaçao, San Francisco, 4, 86.33, Non Inc., 07/09/14
+    Galloway, Aragón, Trinidad & Tobago, Zaragoza, 5, 85.80, Diam Proin., 21/01/15
+    Kirsten, Tamil Nadu, Wallis & Futuna, Neyveli, 6, 28.47, Mollis Non Limited, 03/05/14
+    Holland, Cartago, Falkland Islands, San Diego, 7, 1.34, Ullamcorper Inc., 17/07/14
+    Thaddeus, BC, Canada, Oliver, 8, 59.04, Ante Nunc Mauris Ltd, 17/02/15
+    Lareina, CA, Spain, San Diego, 9, 4.55, Pellentesque Tincidunt Limited, 29/07/14
+    Jescie, Vienna, Monaco, Vienna, 10, 54.20, Ultricies Ligula Consulting, 16/06/14
+    Logan, IL, Saint Barthélemy, Paris, 11, 91.31, Mi Foundation, 13/12/14
+    Shannon, CG, Nepal, Aberystwyth, 12, 80.86, Auctor Non LLC, 03/05/14
+    Andrew, SO, Argentina, Sokoto, 13, 88.78, Scelerisque Mollis Associates, 12/12/14
+    Jocelyn, WP, Tanzania, Konin, 14, 15.91, Ligula Tortor Dictum Ltd, 22/08/14
+    Gordon, FL, Hong Kong, Miami, 15, 93.97, Suscipit Inc., 12/05/14
+];

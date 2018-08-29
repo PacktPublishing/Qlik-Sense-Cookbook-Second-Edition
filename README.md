@@ -51,7 +51,7 @@ With the following software and hardware list you can run all code files present
 
 
 
-We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](http://www.packtpub.com/sites/default/files/downloads/QlikSenseCookbookSecondEdition_ ColorImages.pdf).
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](http://www.packtpub.com/sites/default/files/downloads/QlikSenseCookbookSecondEdition_ColorImages.pdf).
 
 ### Related products 
 * Qlik Sense® Cookbook [[Packt]](https://www.packtpub.com/big-data-and-business-intelligence/qlik-sense-cookbook?utm_source=github&utm_medium=repository&utm_campaign=9781782175148) [[Amazon]](https://www.amazon.com/dp/1785285165)
